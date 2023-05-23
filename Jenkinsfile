@@ -16,7 +16,7 @@ pipeline {
 		    sh "cd game-of-life && mvn install"
 		  }
 		}
-		stage ("copy and deploy) {
+		stage ("copy and deploy") {
 			steps {
 				sh "docker cp /mnt/weblight/game-of-life/gameoflife-web/target/gameoflife.war server:/usr/local/tomcat/webapps"
 			}
