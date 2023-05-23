@@ -23,7 +23,7 @@ pipeline {
 		}
 		stage ("restart t-server") {
 		  steps {
-				sh "docker exec -it server bash"
+				sh " sudo docker exec -it server bash"
 				sh "cd /bin && ./startup.sh"
 		  }
 		}
