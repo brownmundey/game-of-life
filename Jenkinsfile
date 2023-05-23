@@ -8,7 +8,6 @@ pipeline {
   stages {
 		stage ("install tomcat") {
 			steps {
-				sh "rm -rf *"
 				sh "docker run -itdp 8081:8080 --name server tomcat:9"
 			}
 		}
