@@ -8,6 +8,7 @@ pipeline {
   stages {
 		stage ("install tomcat") {
 			steps {
+				sh "cd /mnt && chmod -R 777 /mnt"
 				sh "docker run -itdp 8081:8080 --name server tomcat:9"
 			}
 		}
