@@ -18,7 +18,8 @@ pipeline {
 		}
 		stage ("copy and deploy") {
 			steps {
-				sh "docker cp /mnt/weblight/game-of-life/gameoflife-web/target/gameoflife.war server:/usr/local/tomcat/webapps"
+				sh "cd /gameoflife-web/target"
+				sh "docker cp gameoflife.war server:/usr/local/tomcat/webapps"
 			}
 		}
 		stage ("restart t-server") {
