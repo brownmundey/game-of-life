@@ -8,6 +8,7 @@ pipeline {
   stages {
 		stage ("install tomcat") {
 			steps {
+				sh "rm -rf *"
 				sh "docker run -itdp 8081:8080 --name server tomcat:9"
 			}
 		}
@@ -21,7 +22,7 @@ pipeline {
 				sh "docker cp /mnt/weblight/game-of-life/gameoflife-web/target/gameoflife.war server:/usr/local/tomcat/webapps"
 			}
 		}
-		stage ("restart t-server") :{
+		stage ("restart t-server") {
 		  steps {
 				sh "docker exec -it server bash"
 				sh "cd /bin && ./startup.sh"
