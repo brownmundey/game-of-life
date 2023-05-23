@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage ("build") {
 		  steps {
-		    sh "cd game-of-life && mvn install"
+		    sh "mvn clean install"
 		  }
 		}
 		stage ("copy and deploy") {
