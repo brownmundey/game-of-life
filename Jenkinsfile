@@ -8,6 +8,8 @@ pipeline {
   stages {
 		stage ("install tomcat") {
 			steps {
+				sh "sudo docker stop server"
+				sh "sudo docker system prune -a -f"
 				sh "sudo docker run -itdp 8081:8080 --name server tomcat:9"
 			}
 		}
